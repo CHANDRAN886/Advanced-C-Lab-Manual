@@ -15,16 +15,33 @@ Else
 6.	Return 0
  
 Program:
+~~~
+#include <stdio.h>
 
-//type your code here
-
-
+struct eligiblity{
+    int age;
+    char n[50];
+};
+int main(){
+    struct eligiblity e;
+    scanf("%s", e.n);
+    scanf("%d", &e.age);
+    
+    printf("Name: %s\n", e.n);
+    printf("Age: %d\n", e.age);
+    printf("Vaccine Eligibility: ");
+    if (e.age <= 6)
+        printf("No\n");
+    else
+        printf("Yes\n");
+    return 0;
+}
+~~~
 Output:
-
-//paste your output here
-
+<img width="661" height="361" alt="image" src="https://github.com/user-attachments/assets/b00f6ce7-0ae7-4451-8367-b47b0770c2b7" />
 
 Result:
+
 Thus, the program is verified successfully. 
 
 
@@ -43,21 +60,33 @@ Algorithm:
 7.	Return 0
  
 Program:
+~~~
+#include <stdio.h>
+struct numbers{
+    int a;
+    int b;
+};
+struct numbers add(struct numbers n){
+    struct numbers result;
+    result.a = n.a + n.b; 
+    result.b = result.a;         
+    return result;
+}
+int main(){
+    struct numbers n, res;
+    scanf("%d", &n.a);
+    scanf("%d", &n.b);
+    res = add(n);
+    printf("Sum = %d\n", res.a);
 
-//type your code here
-
-
-
-
+    return 0;
+}
+~~~
 Output:
-
-
-//paste your output here
-
-
-
+<img width="628" height="300" alt="image" src="https://github.com/user-attachments/assets/c8a7eff5-2eb5-46b5-b0f3-4a7773a72b95" />
 
 Result:
+
 Thus, the program is verified successfully
 
 
@@ -85,28 +114,30 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
+~~~
+#include <stdio.h>
+int main() {
+    char filename[40];
+    FILE *fp;
+    scanf("%s", filename);
+    fp = fopen(filename, "w");
+    if (fp == NULL) {
+        printf("Error creating file\n");
+        return 1;
+    }
+    printf("%s File Created Successfully\n", filename);
+    printf("%s File Opened\n", filename);
+    fclose(fp);
+    printf("%s File Closed\n", filename);
 
-//type your code here
-
-
-
-
+    return 0;
+}
+~~~
 Output:
-
-
-//paste your output here
-
-
-
-
-
-
-
-
-
-
+<img width="1032" height="900" alt="image" src="https://github.com/user-attachments/assets/d255f7c5-33b9-45fd-8b55-6fb1d5bd0a30" />
 
 Result:
+
 Thus, the program is verified successfully
  
 
@@ -132,24 +163,36 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
+~~~
+#include <stdio.h>
 
-//type your code here
-
-
-
-
+int main() {
+    char filename[100];
+    FILE *fp;
+    int n, roll;
+    scanf("%s", filename);
+    fp = fopen(filename, "w");
+    if (fp == NULL) {
+        printf("Error opening file\n");
+        return 1;
+    }
+    printf("%s Opened\n", filename);
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &roll);
+        fprintf(fp, "%d\n", roll);
+    }
+    printf("Data added Successfully\n");
+    fclose(fp);
+    return 0;
+}
+~~~
 Output:
-
-
-//paste your output here
-
-
-
-
-
+<img width="690" height="891" alt="image" src="https://github.com/user-attachments/assets/2e4aed91-633e-4fa9-834f-6f2a7963217f" />
 
 Result:
-Thus, the program is verified successfully
+
+Thus, the program is verified successfully.
 
 
 
@@ -186,21 +229,48 @@ Algorithm:
 13.End the program by returning 0.
 
 Program:
+~~~
+#include <stdio.h>
+#include <stdlib.h>
 
-//type your code here
+struct subject
+{
+    char name[50];
+    int marks;
+};
 
+int main()
+{
+    int n, i;
+    scanf("%d", &n);
 
+    struct subject *s;
+    s = (struct subject *)malloc(n * sizeof(struct subject));
 
+    if(s == NULL) {
+        printf("Memory allocation failed.");
+        return 1;
+    }
 
+    for(i = 0; i < n; i++) {
+        scanf(" %s", s[i].name);
+        scanf("%d", &s[i].marks);
+    }
+
+    printf("\n--- Subject Details ---\n");
+
+    for(i = 0; i < n; i++) {
+        printf("\nSubject Name : %s", s[i].name);
+        printf("\nMarks        : %d\n", s[i].marks);
+    }
+
+    free(s);
+    return 0;
+}
+~~~
 Output:
-
-
-//paste your output here
-
-
-
-
-
+<img width="611" height="358" alt="image" src="https://github.com/user-attachments/assets/4f3469d3-3649-4c02-939e-b0fd41032754" />
 
 Result:
-Thus, the program is verified successfully
+
+Thus, the program is verified successfully.
